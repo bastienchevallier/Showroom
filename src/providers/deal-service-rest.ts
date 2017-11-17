@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 let showsURL = SERVER_URL + 'api/shows/';
 
 @Injectable()
-export class ShowService {
+export class DealService {
   favoriteCounter: number = 0;
   favorites: Array<any> = [];
 
@@ -15,13 +15,13 @@ export class ShowService {
     }
 
     findAll() {
-        return this.http.get(showsURL)
+        return this.http.get(dealsURL)
             .map(res => res.json())
             .toPromise();
     }
 
     findById(id) {
-        return this.http.get(showsURL + "id/" + id)
+        return this.http.get(dealsURL + "id/" + id)
             .map(res => res.json())
             .toPromise();
     }
@@ -30,9 +30,9 @@ export class ShowService {
         return Promise.resolve(this.favorites);
     }
 
-    favorite(show) {
+    favorite(deal) {
         this.favoriteCounter = this.favoriteCounter + 1;
-        this.favorites.push({id: this.favoriteCounter, show: show});
+        this.favorites.push({id: this.favoriteCounter, deal: deal});
         return Promise.resolve();
     }
 

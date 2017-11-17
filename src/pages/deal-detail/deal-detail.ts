@@ -1,27 +1,27 @@
 import {Component} from '@angular/core';
 import {ActionSheetController, ActionSheet, NavController, NavParams, ToastController} from 'ionic-angular';
-import {ShowService} from '../../providers/show-service-rest';
+import {DealService} from '../../providers/deal-service-rest';
 
 @Component({
-    selector: 'page-show-detail',
-    templateUrl: 'show-detail.html'
+    selector: 'page-deal-detail',
+    templateUrl: 'deal-detail.html'
 })
-export class ShowDetailPage {
+export class DealDetailPage {
 
-    show: any;
+    deal: any;
 
-    constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public ShowService: ShowService, public toastCtrl: ToastController) {
-        this.show = this.navParams.data;
-        ShowService.findById(this.show.id).then(
-            show => this.show = show
+    constructor(public actionSheetCtrl: ActionSheetController, public navCtrl: NavController, public navParams: NavParams, public DealService: DealService, public toastCtrl: ToastController) {
+        this.deal = this.navParams.data;
+        DealService.findById(this.deal.id).then(
+            deal => this.deal = deal
         );
     }
 
-    favorite(show) {
-        this.ShowService.favorite(show)
-            .then(show => {
+    favorite(deal) {
+        this.DealService.favorite(deal)
+            .then(deal => {
                 let toast = this.toastCtrl.create({
-                    message: 'Show added to your favorites',
+                    message: 'Deal added to your favorites',
                     cssClass: 'mytoast',
                     duration: 1000
                 });
@@ -29,7 +29,7 @@ export class ShowDetailPage {
             });
     }
 
-    share(show) {
+    share(deal) {
         let actionSheet: ActionSheet = this.actionSheetCtrl.create({
             title: 'Share via',
             buttons: [

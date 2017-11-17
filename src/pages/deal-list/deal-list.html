@@ -9,20 +9,20 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="show-list">
+<ion-content class="deal-list">
 
     <ion-list *ngIf="viewMode==='list'">
 
-        <ion-item-sliding *ngFor="let show of shows">
-            <button ion-item (click)="openShowDetail(show)">
+        <ion-item-sliding *ngFor="let deal of deals">
+            <button ion-item (click)="openDealDetail(deal)">
                 <ion-thumbnail item-left>
-                    <img src="{{show.image}}"/>
+                    <img src="{{deal.image}}"/>
                 </ion-thumbnail>
-                <h2>{{show.name}}</h2>
-                <p>{{show.date}}</p>
+                <h2>{{deal.name}}</h2>
+                <p>{{deal.date}}</p>
             </button>
             <ion-item-options>
-                <button danger (click)="deleteItem(show)">Delete</button>
+                <button danger (click)="deleteItem(deal)">Delete</button>
             </ion-item-options>
         </ion-item-sliding>
 
@@ -37,7 +37,7 @@
         <ion-segment-button value="list">
             <ion-icon name="list"></ion-icon>
         </ion-segment-button>
-        <ion-segment-button value="map" (ionSelect)="showMap()">
+        <ion-segment-button value="map" (ionSelect)="dealMap()">
             <ion-icon name="map"></ion-icon>
         </ion-segment-button>
     </ion-segment>

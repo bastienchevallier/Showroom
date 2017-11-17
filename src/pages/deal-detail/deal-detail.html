@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Deal</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="deal.id">
+        <img src="{{deal.image}}"/>
+        <ion-card-content>
+            <h2 class="card-title">{{deal.name}}</h2>
+            <p>{{deal.begin}} - {{deal.end}}</p>
+        </ion-card-content>
+        <ion-list>
+            <ion-item>
+                <ion-icon item-left name="clock"></ion-icon>
+                <h3>Date</h3>
+                <ion-note item-right>{{deal.begin}} - {{deal.end}}</ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-icon item-left name="clipboard"></ion-icon>
+                <h3>Description</h3>
+                <ion-note item-right>{{deal.description}}</ion-note>
+            </ion-item>
+            <ion-item>
+                <ion-icon item-left name="pricetags"></ion-icon>
+                <h3>Price</h3>
+                <ion-note item-right>{{deal.price}}</ion-note>
+            </ion-item>
+        </ion-list>
+
+        <ion-item>
+            <button ion-button icon-left (click)="favorite(deal)" clear item-left>
+                <ion-icon name="star"></ion-icon>
+                Favorite
+            </button>
+            <button ion-button icon-left (click)="share(deal)" clear item-right>
+                <ion-icon name="share"></ion-icon>
+                Share
+            </button>
+        </ion-item>
+
+    </ion-card>
+</ion-content>
