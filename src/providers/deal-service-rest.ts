@@ -3,7 +3,7 @@ import {Http, Headers, RequestOptions} from '@angular/http';
 import {SERVER_URL} from './config';
 import 'rxjs/Rx';
 
-let showsURL = SERVER_URL + 'api/shows/';
+let dealsURL = SERVER_URL + 'api/deals/';
 
 @Injectable()
 export class DealService {

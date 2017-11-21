@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {ShowService} from '../../providers/show-service-rest';
-import {ShowDetailPage} from '../show-detail/show-detail';
+import {DealService} from '../../providers/deal-service-rest';
+import {DealDetailPage} from '../deal-detail/deal-detail';
 
 @Component({
     selector: 'page-favorite-list',
@@ -11,12 +11,12 @@ export class FavoriteListPage {
 
     favorites: Array<any>;
 
-    constructor(public navCtrl: NavController, public service: ShowService) {
+    constructor(public navCtrl: NavController, public service: DealService) {
         this.getFavorites();
     }
 
     itemTapped(favorite) {
-        this.navCtrl.push(ShowDetailPage, favorite.show);
+        this.navCtrl.push(DealDetailPage, favorite.deal);
     }
 
     deleteItem(favorite) {

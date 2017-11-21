@@ -1,7 +1,7 @@
 {
-  "name": "showtonight",
+  "name": "showroom",
   "version": "0.0.0",
-  "author": "Ghislain de Juvigny",
+  "author": "Showroom Team",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
