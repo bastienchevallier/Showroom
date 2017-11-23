@@ -35,15 +35,33 @@ export class DealDetailPage {
             buttons: [
                 {
                     text: 'Twitter',
-                    handler: () => console.log('share via twitter')
+                    handler: () => { 
+                        let toast = this.toastCtrl.create({
+                        message: 'Shared via Twitter',
+                        cssClass: 'mytoast',
+                        duration: 2000
+                        });
+                        toast.present(toast);}
                 },
                 {
                     text: 'Facebook',
-                    handler: () => console.log('share via facebook')
+                    handler: () => { 
+                        let toast = this.toastCtrl.create({
+                        message: 'Shared via Facebook',
+                        cssClass: 'mytoast',
+                        duration: 2000
+                        });
+                        toast.present(toast);}
                 },
                 {
                     text: 'Email',
-                    handler: () => console.log('share via email')
+                    handler: () => { 
+                        let toast = this.toastCtrl.create({
+                        message: 'Shared via Email',
+                        cssClass: 'mytoast',
+                        duration: 2000
+                        });
+                        toast.present(toast);}
                 },
                 {
                     text: 'Cancel',
@@ -52,7 +70,6 @@ export class DealDetailPage {
                 }
             ]
         });
-
         actionSheet.present();
     }
 

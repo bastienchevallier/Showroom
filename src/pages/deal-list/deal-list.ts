@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Config, NavController} from 'ionic-angular';
 import {DealService} from '../../providers/deal-service-rest';
 import {DealDetailPage} from '../deal-detail/deal-detail';
+import {QrScannerPage} from '../qr-scanner/qr-scanner';
 import leaflet from 'leaflet';
 
 @Component({
@@ -14,7 +15,7 @@ export class DealListPage {
     dealsForSearch: Array<any>;
     searchKey: string = "";
     viewMode: string = "list";
-    map;
+    map = null;
     markersGroup;
 
     constructor(public navCtrl: NavController, public service: DealService, public config: Config) {
@@ -23,6 +24,10 @@ export class DealListPage {
 
     openDealDetail(deal: any) {
         this.navCtrl.push(DealDetailPage, deal);
+    }
+
+    openQrScanner() {
+        this.navCtrl.push(QrScannerPage);
     }
 
     onInput(event) {
@@ -53,6 +58,8 @@ export class DealListPage {
             .catch(error => alert(error));
     }
 
+
+
     dealMap() {
         setTimeout(() => {
             this.map = leaflet.map("map").setView([48.85, 2.35], 10);
@@ -62,6 +69,7 @@ export class DealListPage {
             this.dealMarkers();
         })
     }
+
 
     dealMarkers() {
         if (this.markersGroup) {
