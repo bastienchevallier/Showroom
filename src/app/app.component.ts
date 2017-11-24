@@ -5,6 +5,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {DealListPage} from '../pages/deal-list/deal-list';
 import {FavoriteListPage} from '../pages/favorite-list/favorite-list';
+import {QrScannerPage} from '../pages/qr-scanner/qr-scanner';
 import {WelcomePage} from '../pages/welcome/welcome';
 import {AboutPage} from '../pages/about/about';
 
@@ -30,8 +31,9 @@ export class MyApp {
         this.initializeApp();
 
         this.appMenuItems = [
-            {title: 'Shows', component: DealListPage, icon: 'bonfire'},
-            {title: 'Favorites', component: FavoriteListPage, icon: 'star'}
+            {title: 'Secret Deals', component: DealListPage, icon: 'albums'},
+            {title: 'Favorites', component: FavoriteListPage, icon: 'star'},
+            {title: 'Scan QR Code', component: QrScannerPage, icon: 'qr-scanner'},
         ];
 
         this.helpMenuItems = [
