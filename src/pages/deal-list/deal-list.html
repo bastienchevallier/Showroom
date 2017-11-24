@@ -9,7 +9,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="deal-list">
+<ion-content class="deal-list" overflow-scroll=”true”>
     <ion-item-sliding *ngFor="let deal of deals">
         <button ion-item (click)="openDealDetail(deal)">
             <ion-card>
