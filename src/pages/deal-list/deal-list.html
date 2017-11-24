@@ -10,19 +10,19 @@
 </ion-header>
 
 <ion-content class="deal-list" overflow-scroll=”true”>
-    <ion-list *ngIf="viewMode==='list'">
-        <ion-item-sliding *ngFor="let deal of deals">
-            <button ion-item (click)="openDealDetail(deal)">
-                <ion-card>
-                    <img src="{{deal.image}}"/>
-                        <ion-card-content>
-                            <h2 class="card-title">{{deal.name}}</h2>
-                            <p>{{deal.begin}} / {{deal.end}}</p>
-                        </ion-card-content>
-                </ion-card>
-            </button>
-        </ion-item-sliding>
-    </ion-list>
+        <ion-list *ngIf="viewMode==='list'">
+            <ion-item-sliding *ngFor="let deal of deals">
+                <button ion-item (click)="openDealDetail(deal)">
+                    <ion-card>
+                        <img src="{{deal.image}}"/>
+                            <ion-card-content>
+                                <h2 class="card-title">{{deal.name}}</h2>
+                                <p>{{deal.begin}} / {{deal.end}}</p>
+                            </ion-card-content>
+                    </ion-card>
+                </button>
+            </ion-item-sliding>
+        </ion-list>
 
     <div *ngIf="viewMode==='map'" style="width:100%;height:100%;" id="map"></div>
 </ion-content>

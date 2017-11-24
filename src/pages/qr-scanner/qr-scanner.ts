@@ -12,14 +12,10 @@ import {DealService} from '../../providers/deal-service-rest';
 
 export class QrScannerPage {
 
-	deals: any[] = [];
-	selectedDeal: any;
-	dealFound:boolean = false;
-	map = null;
-	markersGroup;
+	scanDeal: any;
 	
 
-    constructor(public navCtrl: NavController, public toastCtrl: ToastController, private barcodeScanner: BarcodeScanner) {
+    constructor(public navCtrl: NavController, public toastCtrl: ToastController, private barcodeScanner: BarcodeScanner, public DealService: DealService) {
     	this.scan();
     }
 
@@ -32,32 +28,30 @@ export class QrScannerPage {
     }
 
     scan() {
-  		this.selectedDeal = {};
-  		this.barcodeScanner.scan().then((barcodeData) => {
-    		this.selectedDeal = this.deals.find(deal => deal.id === barcodeData.text);
-    		if(this.selectedDeal !== undefined) {
-      			this.dealFound = true;
-      			{ 
-                    let toast = this.toastCtrl.create({
-                    message: 'Deal found',
-                    cssClass: 'mytoast',
-                    duration: 2000
-                    });
-                    toast.present(toast);}
-                this.openDealDetail(this.selectedDeal);    
-   			}else{
-     	 		this.dealFound = false;
-				{ 
-                    let toast = this.toastCtrl.create({
-                    message: 'Deal not found',
-                    cssClass: 'mytoast',
-                    duration: 2000
-                    });
-                    toast.present(toast);}
-    		}
-  		}, (err) => {
-    		console.log('err')
-  		});
+    		this.barcodeScanner.scan().then((barcodeData) => {
+      		this.scanDeal.id == barcodeData.text;
+          this.DealService.findById(this.scanDeal.id).then( function(deal) {
+                    { // "Stuff worked!"
+                      let toast = this.toastCtrl.create({
+                      message: 'Deal found',
+                      cssClass: 'mytoast',
+                      duration: 2000
+                      });
+                      toast.present(toast);} 
+                    this.openDealDetail(deal);               
+          }, function(err) {
+                        { 
+                      let toast = this.toastCtrl.create({
+                      message: 'Deal not found',
+                      cssClass: 'mytoast',
+                      duration: 2000
+                      });
+                      toast.present(toast);} // Error: "It broke"
+          });
+    		}, (err) => {
+      		console.log('err')
+    		});
+
 	}
 
 }
