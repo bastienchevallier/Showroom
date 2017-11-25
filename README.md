@@ -1,6 +1,8 @@
-# Show Tonight
+# Deal your secret
 
-Show Tonight is a sample application that demonstrates how to build mobile apps with Ionic 3 for HackX. 
+Deal your secret is a sample application that provide secret deals to the customers. Scan a QRcode presents on a menu, in a shop, a secret deal appears just for you ! 
+
+What is a secret deal ? It can be a discount, a specific new article only available for Deal your secret's users, and many other things
 
 ## Installation Instructions
 
@@ -14,12 +16,12 @@ Follow these instructions to install the app and run it with the data services:
 
 1. Clone the repository:
     ```
-    git clone https://github.com/Hack-X/ShowTonight
+    git clone https://github.com/Showroom
     ```
 
-1. Navigate to the `ShowTonight` directory :
+1. Navigate to the `Showroom` directory :
     ```
-    cd showtonight
+    cd Showroom
     ```
 
 1. Install the dependencies
