@@ -16,7 +16,7 @@ Follow these instructions to install the app and run it with the data services:
 
 1. Clone the repository:
     ```
-    git clone https://github.com/Showroom
+    git clone https://github.com/bastienchevallier/Showroom.git
     ```
 
 1. Navigate to the `Showroom` directory :
