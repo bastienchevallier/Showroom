@@ -13,6 +13,7 @@ import {DealService} from '../../providers/deal-service-rest';
 export class QrScannerPage {
 
 	scanDeal: any;
+  deal : any;
 	
 
     constructor(public navCtrl: NavController, public toastCtrl: ToastController, private barcodeScanner: BarcodeScanner, public DealService: DealService) {
@@ -30,24 +31,28 @@ export class QrScannerPage {
     scan() {
     		this.barcodeScanner.scan().then((barcodeData) => {
       		this.scanDeal.id == barcodeData.text;
-          this.DealService.findById(this.scanDeal.id).then( function(deal) {
-                    { // "Stuff worked!"
-                      let toast = this.toastCtrl.create({
-                      message: 'Deal found',
-                      cssClass: 'mytoast',
-                      duration: 2000
-                      });
-                      toast.present(toast);} 
-                    this.openDealDetail(deal);               
-          }, function(err) {
-                        { 
-                      let toast = this.toastCtrl.create({
-                      message: 'Deal not found',
-                      cssClass: 'mytoast',
-                      duration: 2000
-                      });
-                      toast.present(toast);} // Error: "It broke"
-          });
+          this.DealService.findById(this.scanDeal.id).then( 
+              deal => this.deal = deal
+          );
+          this.openDealDetail(this.deal);
+          if (this.deal !== undefined ){
+              { // "Stuff worked!"
+                let toast = this.toastCtrl.create({
+                message: 'Deal found',
+                cssClass: 'mytoast',
+                duration: 2000
+                });
+                toast.present(toast);} 
+               
+          }              
+          else{
+              let toast = this.toastCtrl.create({
+              message: 'Deal not found',
+              cssClass: 'mytoast',
+              duration: 2000
+              });
+              toast.present(toast); // Error: "It broke"
+          }
     		}, (err) => {
       		console.log('err')
     		});

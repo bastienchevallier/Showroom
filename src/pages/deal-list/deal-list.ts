@@ -9,6 +9,7 @@ import leaflet from 'leaflet';
     selector: 'page-deal-list',
     templateUrl: 'deal-list.html'
 })
+
 export class DealListPage {
 
     deals: Array<any>;
@@ -52,8 +53,8 @@ export class DealListPage {
     findAll() {
         this.service.findAll()
             .then(data => {
-                this.deals = data;
-                this.dealsForSearch = data;
+                    this.deals = data;
+                    this.dealsForSearch = data;
             })
             .catch(error => alert(error));
     }
@@ -77,15 +78,12 @@ export class DealListPage {
         }
         this.markersGroup = leaflet.layerGroup([]);
         this.deals.forEach(deal => {
-        
             // If the pro doesn't want his deal to be hidden
-            if (deal.hidden != false){
                 if (deal.lat, deal.lng) {
                     let marker: any = leaflet.marker([deal.lat, deal.lng]).on('click', event => this.openDealDetail(event.target.data));
                     marker.data = deal;
                     this.markersGroup.addLayer(marker);
                 }
-            }
         });
         this.map.addLayer(this.markersGroup);
     }
