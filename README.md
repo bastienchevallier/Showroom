@@ -1,6 +1,10 @@
 # Prestige
 
 Prestige is a sample application that provide secret deals to the customers
+Scan a QRcode presents on a menu, in a shop, a secret deal appears just for you ! 
+
+What is a secret deal ? It can be a discount, a specific new article only available for Deal your secret's users, and many other things
+
 
 ## Installation Instructions
 
@@ -14,7 +18,9 @@ Follow these instructions to install the app and run it with the data services:
 
 1. Clone the repository:
     ```
-    git clone https://github.com/bastienchevallier/Showroom
+
+    git clone https://github.com/bastienchevallier/Showroom.git
+
     ```
 
 1. Navigate to the `Showroom` directory :
